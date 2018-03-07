@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Snail_DepthTexture
+  m_Shader: {fileID: 4800000, guid: 8525aa613cc107d4eb406a8caa705fe2, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _Add: -0.6
+    - _Multiply: 2209
+    - _Offset: 0
+    - _Scale: 1000
+    - __dirty: 0
+    - exp: 1
+    m_Colors:
+    - _BlackWhiteDistances: {r: 9.61, g: 10000, b: 0, a: 0}
