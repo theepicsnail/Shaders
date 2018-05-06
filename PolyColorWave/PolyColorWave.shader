@@ -10,7 +10,8 @@ Shader "Snail/PolyColorWave" {
     {
         Tags { "Queue"="Geometry+0" "RenderType"="Opaque"   "LightMode" = "ForwardBase"  }
         Cull Back
- 
+        Blend SrcAlpha OneMinusSrcAlpha
+ 		
         Pass
         {
 			CGPROGRAM
