@@ -8,10 +8,9 @@ Shader "Snail/PolyColorWave" {
     }
     SubShader
     {
-        Tags { "Queue"="Geometry+0" "RenderType"="Opaque"   "LightMode" = "ForwardBase"  }
+        Tags { "Queue"="Transparent" "RenderType"="Transparent"   "LightMode" = "ForwardBase"  }
         Cull Back
-        Blend SrcAlpha OneMinusSrcAlpha
- 		
+ 
         Pass
         {
 			CGPROGRAM
@@ -103,6 +102,7 @@ Shader "Snail/PolyColorWave" {
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
 				col.rgb *= i.col.rgb;
+				clip(col.a-0.01);
 				return lerp(col, fixed4(1,1,1,1) , i.col.a);
             }
 

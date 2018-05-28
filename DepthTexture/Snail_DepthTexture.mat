@@ -19,8 +19,8 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - _Add: -0.6
-    - _Multiply: 2209
+    - _Add: 0
+    - _Multiply: 3
     - _Offset: 0
     - _Scale: 1000
     - __dirty: 0
