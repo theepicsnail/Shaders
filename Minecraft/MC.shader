@@ -301,4 +301,5 @@ Shader "Snail/Minecraft"
         }
     } 
 	FallBack "Diffuse"
+	CustomEditor "MinecraftShaderEditor"
 }
