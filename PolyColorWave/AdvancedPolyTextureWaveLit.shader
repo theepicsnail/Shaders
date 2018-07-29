@@ -147,7 +147,7 @@ Shader "Snail/Shaders/AdvancedPolyTextureWaveLit" {
                 fixed4 col = lerp(tex2D(_MainTex, i.uv), tex2D(_MainTex2, i.uv), i.col.r);
 				
 				return 
-				lerp(col, _FlashColor, i.col.a)
+				lerp(col, _FlashColor, i.col.a * _FlashColor.a)
 				#ifdef EnableLighting
 					*i.lighting
 				#endif

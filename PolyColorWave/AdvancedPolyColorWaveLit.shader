@@ -10,7 +10,7 @@ Shader "Snail/Shaders/AdvancedPolyColorWaveLit" {
 		_FlashColor("Flash Color", Color) = (1,1,1,1)
 		
 		// Wave fronts come by every _Speed seconds.
-		_Speed("Speed", Float) = 1
+		_Speed("Speed", Float) = .1
 
 		// The slope controls propigation of the wave down the UVs
 		_Slope("Slope", Float) = .1
