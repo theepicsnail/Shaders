@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: Palette
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity Asset
+    Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=14201\n1015;92;905;926;477.5067;256.6627;1;True;False\nNode;AmplifyShaderEditor.Vector3Node;12;-659.4916,-138.5953;Float;False;Constant;_Vector1;Vector
+    1;0;0;Create;1,1,1;0,0,0;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.FunctionInput;2;-100.5679,111.4854;Float;False;B;3;2;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;1;-79.56792,193.4854;Float;False;A;3;1;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.SimpleTimeNode;14;-806.4916,48.40466;Float;False;1;0;FLOAT;1.0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.CosOpNode;15;20.49329,-82.66272;Float;False;1;0;FLOAT;0.0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.TauNode;7;-222.5,136;Float;False;0;1;FLOAT;0\nNode;AmplifyShaderEditor.Vector3Node;10;-347.4916,297.4047;Float;False;Constant;_Vector0;Vector
+    0;0;0;Create;0.5,0.5,0.5;0,0,0;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.FunctionInput;3;-474.5,-40;Float;False;C;3;3;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;8;-68.5,19;Float;False;2;2;0;FLOAT;0.0;False;1;FLOAT;0,0,0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ScaleAndOffsetNode;6;-282.5,21;Float;False;3;0;FLOAT3;0,0,0;False;1;FLOAT;1.0;False;2;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.ScaleAndOffsetNode;9;99.5,21;Float;False;3;0;FLOAT;0.0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;4;-460.5,122;Float;False;D;3;4;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.Vector3Node;13;-689.4916,157.4047;Float;False;Constant;_Vector2;Vector
+    2;0;0;Create;0,0.33,0.66;0,0,0;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.FunctionInput;5;-611.5,41;Float;False;T;1;0;False;1;0;FLOAT;0.0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionOutput;0;352,17;Float;False;True;Output;0;True;1;0;FLOAT;0,0,0;False;1;FLOAT;0\nWireConnection;2;0;10;0\nWireConnection;1;0;10;0\nWireConnection;15;0;8;0\nWireConnection;3;0;12;0\nWireConnection;8;0;6;0\nWireConnection;8;1;7;0\nWireConnection;6;0;3;0\nWireConnection;6;1;5;0\nWireConnection;6;2;4;0\nWireConnection;9;0;15;0\nWireConnection;9;1;2;0\nWireConnection;9;2;1;0\nWireConnection;4;0;13;0\nWireConnection;5;0;14;0\nWireConnection;0;0;9;0\nASEEND*/\n//CHKSM=0C03C6B08ABA676F68051FFFBD42EF43D0895909"
+  m_functionName: 
+  m_description: http://iquilezles.org/www/articles/palettes/palettes.htm
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_nodeCategory: 3
+  m_customNodeCategory: 

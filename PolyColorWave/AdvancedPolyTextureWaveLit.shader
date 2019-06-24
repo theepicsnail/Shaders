@@ -1,6 +1,6 @@
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
-Shader "Snail/Shaders/AdvancedPolyTextureWaveLit" {
+Shader "snail/PolyColorWave/AdvancedPolyTextureWaveLit" {
 	
     Properties
     {
@@ -27,10 +27,7 @@ Shader "Snail/Shaders/AdvancedPolyTextureWaveLit" {
         [Enum(UnityEngine.Rendering.BlendMode)] _DstBlend("DestBlend [Zero]", Float) = 0
         [Enum(UnityEngine.Rendering.CompareFunction)] _ZTest("ZTest [LessEqual]", Float) = 4
         [Enum(Off,0,On,1)] _ZWrite("ZWrite [On]", Float) = 1
-
-		[Header(Lighting)]
-		[Toggle(EnableLighting)]
-        _EnableLighting ("Enabled", Float) = 0
+		_ShadowTex ("Shadow ramp", 2D)="white" {}
     }
 
     SubShader
@@ -53,7 +50,6 @@ Shader "Snail/Shaders/AdvancedPolyTextureWaveLit" {
             #pragma fragment frag  
             #pragma geometry geom
 			#pragma multi_compile_fwdbase
-			#pragma shader_feature EnableLighting
 			#include "UnityCG.cginc"
 
 			uniform float4 _FlashColor;
@@ -61,6 +57,7 @@ Shader "Snail/Shaders/AdvancedPolyTextureWaveLit" {
             uniform float4 _MainTex_ST;
             uniform sampler2D _MainTex2;
             uniform float4 _MainTex2_ST;
+			uniform sampler2D _ShadowTex;
 			uniform float _Speed;
 			uniform float _FlashLength;
 			uniform float _Noise;
@@ -74,9 +71,7 @@ Shader "Snail/Shaders/AdvancedPolyTextureWaveLit" {
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
-				#ifdef EnableLighting
-					float4 lighting : COLOR;
-				#endif
+				float4 lighting : COLOR;
             };
  
             struct g2f
@@ -84,9 +79,7 @@ Shader "Snail/Shaders/AdvancedPolyTextureWaveLit" {
                 float4 pos : SV_POSITION;
                 float2 uv : TEXCOORD0;
                 fixed4 col : COLOR;
-				#ifdef EnableLighting
-					float4 lighting : COLOR1;
-				#endif
+				float4 lighting : COLOR1;
             };
 			
 			
@@ -96,18 +89,14 @@ Shader "Snail/Shaders/AdvancedPolyTextureWaveLit" {
                 o.vertex = v.vertex;
                 o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
 				
-				#ifdef EnableLighting
-					
-					float3 normal = normalize(mul(unity_ObjectToWorld, float4(v.normal.xyz,0)));
-					o.lighting.xyz = max(0,ShadeSH9(float4(normal, 1))) +
-								   Shade4PointLights(unity_4LightPosX0, unity_4LightPosY0, unity_4LightPosZ0,
-                                        unity_LightColor[0].rgb, unity_LightColor[1].rgb, unity_LightColor[2].rgb, unity_LightColor[3].rgb,
-                                        unity_4LightAtten0, 
-										normalize(mul(unity_ObjectToWorld, float4(v.vertex.xyz,1))),
-										normal
-										);
-
-				#endif
+				float3 normal = normalize(mul(unity_ObjectToWorld, float4(v.normal.xyz,0)));
+				o.lighting.xyz = max(0,ShadeSH9(float4(normal, 1))) +
+								Shade4PointLights(unity_4LightPosX0, unity_4LightPosY0, unity_4LightPosZ0,
+                                    unity_LightColor[0].rgb, unity_LightColor[1].rgb, unity_LightColor[2].rgb, unity_LightColor[3].rgb,
+                                    unity_4LightAtten0, 
+									normalize(mul(unity_ObjectToWorld, float4(v.vertex.xyz,1))),
+									normal
+									);
 
                 return o;
             }
@@ -132,10 +121,8 @@ Shader "Snail/Shaders/AdvancedPolyTextureWaveLit" {
 					o.uv = IN[i].uv;
 					o.col.rgba = float4( fmod(colorId, 2), 0, 0, flash);
 					
-					#ifdef EnableLighting
-						o.lighting = IN[i].lighting;
-					#endif
-
+					o.lighting = IN[i].lighting;
+					
                     tristream.Append(o);
 				}
                 tristream.RestartStrip();
@@ -146,12 +133,7 @@ Shader "Snail/Shaders/AdvancedPolyTextureWaveLit" {
 					
                 fixed4 col = lerp(tex2D(_MainTex, i.uv), tex2D(_MainTex2, i.uv), i.col.r);
 				
-				return 
-				lerp(col, _FlashColor, i.col.a * _FlashColor.a)
-				#ifdef EnableLighting
-					*i.lighting
-				#endif
-				;
+				return lerp(col, _FlashColor, i.col.a * _FlashColor.a);
             }
 
             ENDCG

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: PointCloud
-  m_Shader: {fileID: 4800000, guid: 1ad8317351a95a8408c91d9c87c34a04, type: 3}
+  m_Shader: {fileID: 4800000, guid: b45b8f1439f386a44895a52f775ce3fc, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -39,7 +39,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ab84948f3e3335940927f98661186912, type: 3}
+        m_Texture: {fileID: 2800000, guid: 64e7766099ad46747a07014e44d0aea1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -57,11 +57,11 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _DIST: 0
+    - _DIST: 6.62
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FILL: 0
-    - _GRID_SIZE: -2.53
+    - _FILL: 1
+    - _GRID_SIZE: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1

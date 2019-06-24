@@ -1,6 +1,6 @@
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
-Shader "Snail/Shaders/PointCloud" 
+Shader "snail/PointCloud/PointCloud 1" 
 {
     Properties 
     {
@@ -106,7 +106,7 @@ Shader "Snail/Shaders/PointCloud"
 
 					// Shift the vertex
 					output.vertex = input[0].vertex;
-					output.vertex.xyz += pos;//z;
+					output.vertex.xyz += pos * _SCALE;//z;
 
 					// Convert from world to clip space.
 					output.vertex = mul(UNITY_MATRIX_VP, output.vertex);

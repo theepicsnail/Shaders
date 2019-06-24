@@ -1,0 +1,13 @@
+Blend[_SrcBlend][_DstBlend]
+BlendOp [_BlendOp]
+Cull [_CullMode]
+ZWrite [_ZWrite]
+Stencil {
+	Ref [_Ref]
+	ReadMask [_ReadMask]
+	WriteMask [_WriteMask]
+	Comp [_Comp]
+	Pass [_Pass]
+	Fail [_Fail]
+	ZFail [_ZFail]
+}

@@ -1,4 +1,4 @@
-Shader "Snail/VGF" 
+Shader "snail/HandyTools/vertex_geometry_fragment" 
 {
     Properties 
     {

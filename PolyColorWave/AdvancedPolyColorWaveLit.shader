@@ -1,10 +1,10 @@
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
-Shader "Snail/Shaders/AdvancedPolyColorWaveLit" {
+Shader "snail/PolyColorWave/AdvancedPolyColorWaveLit" {
 	
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+		_ShadowTex ("Shadow", 2D) = "white" {}
 		_Palette ("Color Palette", 2D) = "white" {}
 		_PaletteIntensity("Color intensity", Range(0,1)) = .5
 		_FlashColor("Flash Color", Color) = (1,1,1,1)
@@ -36,7 +36,7 @@ Shader "Snail/Shaders/AdvancedPolyColorWaveLit" {
     SubShader
     {
 		
-        Tags { "RenderType" = "Opaque"}
+		Tags{ "RenderType" = "Opaque"  "Queue" = "Geometry" "IsEmissive" = "true"  }
 		
         LOD 100
         Blend[_SrcBlend][_DstBlend]
@@ -49,16 +49,18 @@ Shader "Snail/Shaders/AdvancedPolyColorWaveLit" {
         {
 			Tags { "LightMode" = "ForwardBase" }
 			CGPROGRAM
-            #pragma vertex vert
+		    #pragma vertex vert
             #pragma fragment frag  
             #pragma geometry geom
 			#pragma multi_compile_fwdbase
 			#pragma shader_feature EnableLighting
 			#include "UnityCG.cginc"
-
+			#include "Lighting.cginc"
+		
 			uniform float4 _FlashColor;
             uniform sampler2D _MainTex;
             uniform float4 _MainTex_ST;
+			uniform sampler2D _ShadowTex;
             uniform sampler2D _Palette;
 			uniform float _PaletteIntensity;
 			uniform float _Speed;
@@ -149,12 +151,15 @@ Shader "Snail/Shaders/AdvancedPolyColorWaveLit" {
 				col.rgb *= lerp(1, i.col.rgb, _PaletteIntensity);
 				
 				
-				return 
-				lerp(col, _FlashColor, i.col.a)
-				#ifdef EnableLighting
-					*i.lighting
-				#endif
-				;
+				half3 indirectColor = ShadeSH9(float4(0,0,0,1));
+				float3 lightColor = _LightColor0; 
+
+				float4 finalColor = float4(1,1,1,1);
+				finalColor.rgb = _LightColor0;
+				return finalColor;
+				//lerp(col, _FlashColor, i.col.a)
+					//*0+i.lighting+0
+					//tex2D(_ShadowTex, saturate( ( length(i.lighting)/sqrt(3))));
             }
 
             ENDCG

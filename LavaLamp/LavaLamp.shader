@@ -9,7 +9,7 @@ struct appdata_full {
 }
 */
 
-Shader "Snail/LavaLamp"
+Shader "snail/LavaLamp/LavaLamp"
 {
 	Properties
 	{
@@ -20,7 +20,7 @@ Shader "Snail/LavaLamp"
 	SubShader
 	{
 		Tags{ "RenderType" = "Opaque"  "Queue" = "Geometry+0" }
-		Cull Back
+		Cull Front
 		CGPROGRAM
 		
 		#include "../ShaderUtils/noise.cginc"

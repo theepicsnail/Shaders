@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 3dPano
-  m_Shader: {fileID: 4800000, guid: 60596fd0308bb474c88871a564bf18c9, type: 3}
+  m_Shader: {fileID: 4800000, guid: c9cd56e1883c9144ab030f72bd3df543, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -87,4 +87,5 @@ Material:
     - __dirty: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EdgeScaleOffset__: {r: 1, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

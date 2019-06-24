@@ -1,4 +1,4 @@
-Shader "Snail/LitPolyColorWave" {
+Shader "snail/PolyColorWave/LitPolyColorWave" {
 	
     Properties
     {
@@ -16,8 +16,8 @@ Shader "Snail/LitPolyColorWave" {
 			"RenderType" = "Transparent"
 			"Queue" = "Transparent"
 			"IsEmissive" = "true"  }
-        ZWrite off
-		Blend SrcAlpha OneMinusSrcAlpha
+        // ZWrite off
+		// Blend SrcAlpha OneMinusSrcAlpha
         Cull[_Cull]
         
         Pass

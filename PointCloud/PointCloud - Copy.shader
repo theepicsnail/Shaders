@@ -1,6 +1,6 @@
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
-Shader "Snail/Shaders/PointCloud" 
+Shader "snail/PointCloud/PointCloud - Copy" 
 {
     Properties 
     {

@@ -4,7 +4,7 @@
 	that it doesn't suffer the frame/physics engine delay.
 	
 */
-Shader "Snail/RotationLock"
+Shader "snail/RotationLock/RotationLock"
 {
 	Properties
 	{
@@ -17,8 +17,9 @@ Shader "Snail/RotationLock"
 	{
 		Pass
 		{
-			Tags{ "RenderType" = "Opaque"  "Queue" = "Geometry+0" }
 			Cull Back
+            Blend SrcAlpha OneMinusSrcAlpha
+
 			CGPROGRAM
 			#include "UnityCG.cginc"
 			#include "UnityShaderVariables.cginc"
@@ -57,14 +58,13 @@ Shader "Snail/RotationLock"
 				o.pos.xyz += mul(unity_ObjectToWorld,float4(0,0,0,1)).xyz;
 				o.pos = mul(UNITY_MATRIX_VP, o.pos);
 
-				o.uv = v.texcoord;//ComputeScreenPos(o.pos);
+				o.uv = v.texcoord;
 				return o;
 			}    
  
 			half4 FS_Main (v2f i) : COLOR
 			{
-				return tex2D(_MainTex,TRANSFORM_TEX(i.uv, _MainTex));//float4(i.uv.xy/i.uv.w,1,1);
-
+				return tex2D(_MainTex,TRANSFORM_TEX(i.uv, _MainTex));
 			}
 			ENDCG
 		}

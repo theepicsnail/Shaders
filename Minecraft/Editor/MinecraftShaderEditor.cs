@@ -60,11 +60,17 @@ public class MinecraftShaderAnimationWindow : EditorWindow
             else
                 Debug.LogError("Path must be under Assets directory: " + Application.dataPath);
         }
+        
+        if(!System.IO.File.Exists(path))
+        {
+            colorLabel("Directory does not exist.", Color.red);
+            return;
+        }
 
         if (System.IO.File.Exists(path + "/Choose.anim") ||
             System.IO.File.Exists(path + "/Clear.anim") ||
             System.IO.File.Exists(path + "/Minecraft.overrideController"))
-            colorLabel("Warning: This will overwrite files here.", Color.blue);
+            colorLabel("Warning: Animations exist in this directory. Clicking generate will overwrite them.", Color.blue);
 
 
         GUILayout.Space(20);

@@ -1,4 +1,4 @@
-﻿Shader "Snail/RainbowWave"
+Shader "snail/RainbowWave/RainbowWave"
 {
 	Properties
 	{

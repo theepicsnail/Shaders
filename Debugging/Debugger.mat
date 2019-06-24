@@ -6,9 +6,9 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Custom_Debugging
+  m_Name: Debugger
   m_Shader: {fileID: 4800000, guid: 5991ee004cf25054c87b7a471b5befba, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _UV2_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -30,7 +30,7 @@ Material:
     - _ToggleSwitch0: 0
     - _UV0UV1: 0
     - _UV1: 0
-    - _UV2: 0
+    - _UV2: 1
     - _VertexColor: 0
     - _VertexNormal: 0
     - _WorldNormal: 0

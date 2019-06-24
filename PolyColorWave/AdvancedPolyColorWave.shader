@@ -1,4 +1,4 @@
-Shader "Snail/Shaders/AdvancedPolyColorWave" {
+Shader "snail/PolyColorWave/AdvancedPolyColorWave" {
 	
     Properties
     {

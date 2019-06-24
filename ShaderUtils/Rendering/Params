@@ -1,0 +1,19 @@
+[Header(Rendering)]
+// Culling and depth testing https://docs.unity3d.com/Manual/SL-CullAndDepth.html
+[Enum(UnityEngine.Rendering.CullMode)] _CullMode("CullMode [Back]", Float) = 2
+[Enum(Off, 0, On, 1)] _ZWrite("ZWrite [LessEqual]", Float) = 1
+[Enum(UnityEngine.Rendering.CompareFunction)] _ZTest("ZTest <=", Float) = 4
+
+[Space] // Blending https://docs.unity3d.com/Manual/SL-Blend.html
+[Enum(UnityEngine.Rendering.BlendMode)] _SrcBlend("SrcBlend [SrcAlpha]", Float) = 5
+[Enum(UnityEngine.Rendering.BlendMode)] _DstBlend("DestBlend [OneMinusSrcAlpha]", Float) = 6
+[Enum(UnityEngine.Rendering.BlendOp)] _BlendOp("BlendOp [Add]", Float) = 0
+
+[Space] // Stencil https://docs.unity3d.com/Manual/SL-Stencil.html
+[IntRange] _Ref("Ref", Range(0, 255)) = 0
+[IntRange] _ReadMask("ReadMask", Range(0, 255)) = 0
+[IntRange] _WriteMask("WriteMask", Range(0, 255)) = 0
+[Enum(UnityEngine.Rendering.CompareFunction)] _Comp("Comparison", Float) = 0 // "Disabled"
+[Enum(UnityEngine.Rendering.StencilOp)] _Pass("Pass", Float) = 0 // "Keep"
+[Enum(UnityEngine.Rendering.StencilOp)] _Fail("Fail", Float) = 0 // "Keep"
+[Enum(UnityEngine.Rendering.StencilOp)] _ZFail("ZFail", Float) = 0 // "Keep"

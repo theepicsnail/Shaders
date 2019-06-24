@@ -1,6 +1,6 @@
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
-Shader "Snail/Shaders/PointCloud" 
+Shader "snail/PointCloud/PointCloud 4" 
 {
     Properties 
     {
@@ -8,6 +8,7 @@ Shader "Snail/Shaders/PointCloud"
 		// https://gist.github.com/keijiro/22cba09c369e27734011
 		_MainTex("Texture", 2D) = "white" {}
     	_GRID_SIZE("Grid Size", Float) = .1
+    	_SCALE("_SCALE", Float) = 1
     	_DIST("Dist", Float) = 1
     	_ITER_SCALE("Iter scale", Float) = 1
     	_FILL("Fill", Range(0,1)) = 1
@@ -29,6 +30,7 @@ Shader "Snail/Shaders/PointCloud"
 			uniform sampler2D _MainTex;
 			uniform float4 _MainTex_ST;
 			uniform float _ITER_SCALE;
+			uniform float _SCALE;
 			uniform float _FILL;
     	ENDCG
 
@@ -72,7 +74,7 @@ Shader "Snail/Shaders/PointCloud"
 				inline void doPoint(inout FS_INPUT io, float3 pos, float3 center) {
 					float v = 1;
 					float scroll =-.2;
-					v *= snoise(float4(pos-float3(0,scroll*_Time.y,0), _Time.y/2));
+					v *= snoise(float4(pos*10*_SCALE-float3(0,scroll*_Time.y,0), _Time.y/2));
 					v *= v;
 					v *= v;
 					//v *= v;
@@ -110,16 +112,16 @@ Shader "Snail/Shaders/PointCloud"
 					//float3 vertex = input[0].vertex;
 
 					int size = 40;
-					float3 offset = float3(size/2, size/2, size/2);
+					float3 offset = float3(size/2, size/2, size/2)*_SCALE;
 					float3 vertex = float3(
 						pid%size,
 						pid/size%size,
 						pid/size/size%size
-					);
+					)*_SCALE;
 
-					if(vertex.x < size-1) edge(vertex-offset, float3(1,0,0), stream);
-					if(vertex.y < size-1) edge(vertex-offset, float3(0,1,0), stream);
-					if(vertex.z < size-1) edge(vertex-offset, float3(0,0,1), stream);					
+					if(vertex.x < size-1) edge(vertex-offset, float3(1,0,0)*_SCALE, stream);
+					if(vertex.y < size-1) edge(vertex-offset, float3(0,1,0)*_SCALE, stream);
+					if(vertex.z < size-1) edge(vertex-offset, float3(0,0,1)*_SCALE, stream);					
 				}
 
 				
