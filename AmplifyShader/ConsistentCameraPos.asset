@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: ConsistentCameraPos
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity Asset
+    Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=16100\n1927;29;1906;1004;1290;541;1;True;False\nNode;AmplifyShaderEditor.CustomExpressionNode;1;-557,-63;Float;False;$#if
+    UNITY_SINGLE_PASS_STEREO$(unity_StereoWorldSpaceCameraPos[0] +\r unity_StereoWorldSpaceCameraPos[1])
+    / 2$#else$_WorldSpaceCameraPos$#endif$;3;False;0;My Custom Expression;False;False;0;0;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionOutput;0;-357,-63;Float;False;True;ConsistentCameraPos;0;True;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nWireConnection;0;0;1;0\nASEEND*/\n//CHKSM=E9AC415B1DA3A4D1B355B662BC3C86529B21E1E3"
+  m_functionName: 
+  m_description: 
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 3
+  m_customNodeCategory: 
+  m_previewPosition: 0
